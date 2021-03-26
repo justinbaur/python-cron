@@ -1,0 +1,13 @@
+services:
+  # A Python cron job that runs every min
+- type: cron
+  name: the-name-printer
+  env: python
+  schedule: "*/1 * * * *"
+  buildCommand: "pip install -r requirements.txt"
+  startCommand: "python __main__.py"
+  envVars:
+  - key: API_URL
+    value: https://api.fungenerators.com
+  - key: NAME
+    value: bob
